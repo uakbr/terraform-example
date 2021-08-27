@@ -221,3 +221,9 @@ resource "aws_flow_log" "example" {
     traffic_type = "ALL"
     vpc_id = aws_vpc.new_vpc.id
 }
+
+resource "aws_flow_log_bucket_association" "example" {
+    log_bucket = "${aws_s3_bucket.flow_log_bucket.id}"
+    vpc_id = "${aws_vpc.new_vpc.id}"
+}
+`
